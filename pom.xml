@@ -23,7 +23,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.3.3.RELEASE</spring.version>
+    <spring.version>4.1.4.RELEASE</spring.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     <mybatis.version>3.1.1</mybatis.version>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -58,31 +58,31 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- 添加spring-tx包 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- 添加spring-jdbc包 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- 为了方便进行单元测试，添加spring-test包 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!--添加spring-web包 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.1.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!--添加aspectjweaver包 -->
         <dependency>
