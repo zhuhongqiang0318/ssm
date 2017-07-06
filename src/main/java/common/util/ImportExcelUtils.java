@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * 读取excel公共utils
+ * 导入excel解析为数组
  * @author zhq  2017年7月3日
  */
 public class ImportExcelUtils {
