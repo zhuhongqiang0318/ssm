@@ -22,49 +22,57 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <spring.version>4.3.3.RELEASE</spring.version>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+      <spring.version>4.3.3.RELEASE</spring.version>
+      <spring.redis.version>1.6.0.RELEASE</spring.redis.version>
       <mybatis.version>3.2.8</mybatis.version>
       <mybatis-spring.version>1.2.2</mybatis-spring.version>
-      <redis.version>2.0.0</redis.version>
+      <commons-lang3.version>3.3.2</commons-lang3.version>
+      <commons-pool.version>2.0</commons-pool.version>
+      <log4j.version>1.2.17</log4j.version>
+      <slf4j.version>1.7.21</slf4j.version>
+      <fastjson.version>1.2.29</fastjson.version>
+      <httpclient.version>4.5</httpclient.version>
+      <log4j.version>2.8.2</log4j.version>
+      <poi-ooxml.version>3.15</poi-ooxml.version>
+      <redis.version>2.4.2</redis.version>
       <dubbo.version>2.5.2</dubbo.version>
       <druid.version>1.0.25</druid.version>
       <mysql.version>5.1.40</mysql.version>
-      <commons-pool.version>2.0</commons-pool.version>
-      <org.slf4j.version>1.7.10</org.slf4j.version>
-      <log4j.version>1.2.17</log4j.version>
-      <fastjson.version>1.2.29</fastjson.version>
-      <commons-pool2.version>2.0</commons-pool2.version>
-      <httpclient.version>4.5</httpclient.version>
-      <poi-ooxml.version>3.15</poi-ooxml.version>
-      <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
     <dependencies>
-        <!-- 添加Spring-core包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!-- 添加spring-context包 -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- 添加spring-tx包 -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!-- 添加spring-jdbc包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -83,6 +91,13 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!--添加spring-orm包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!--添加aspectjweaver包 -->
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -128,7 +143,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.12</version>
+            <version>${druid.version}</version>
         </dependency>
         <!-- 添加junit单元测试包 -->
         <dependency>
@@ -150,11 +165,7 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.1.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -179,10 +190,45 @@
         </dependency>
         <!-- 文件上传 end-->
 
+        <!-- redis -->
+        <!--<dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${spring.redis.version}</version>
+        </dependency>-->
+
+        <!--log4j日志包-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <dependency>
@@ -193,7 +239,15 @@
         </dependency>
     </dependencies>
 
-  <build>
-    <finalName>ssm</finalName>
-  </build>
+    <build>
+        <finalName>ssm</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>
