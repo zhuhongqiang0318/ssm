@@ -58,7 +58,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:spring-mybatis.xml" />
-        <property name="mapperLocations" value="classpath*:com/web/zhq/*/*.xml" />
+        <property name="mapperLocations" value="classpath*:com/web/zhq/sqlMapper/*.xml" />
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.web.zhq.dao" />
@@ -68,6 +68,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
     <!-- 数据库事务.. -->
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -95,6 +96,9 @@
         <aop:pointcut id="transactionPointcut" expression="execution(* com.web.zhq.service.impl.*.*(..))" />
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
     </aop:config>
+
+    <!-- 加载redis配置文件 -->
+
     <!-- dubbo配置信息引入加载  -->
     <!--<import resource="classpath:applicationConsumer.xml"/>-->
 </beans>
