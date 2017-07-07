@@ -36,10 +36,12 @@
       <httpclient.version>4.5</httpclient.version>
       <log4j.version>2.8.2</log4j.version>
       <poi-ooxml.version>3.15</poi-ooxml.version>
-      <redis.version>2.4.2</redis.version>
+      <redis.version>2.6.2</redis.version>
       <dubbo.version>2.5.2</dubbo.version>
       <druid.version>1.0.25</druid.version>
       <mysql.version>5.1.40</mysql.version>
+      <jedis.version>2.7.3</jedis.version>
+      <spring.data.redis.version>1.7.1.RELEASE</spring.data.redis.version>
   </properties>
 
     <dependencies>
@@ -190,22 +192,17 @@
         </dependency>
         <!-- 文件上传 end-->
 
-        <!-- redis -->
-        <!--<dependency>
+        <!-- redis 2017年7月7日15:57:51-->
+        <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>${redis.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-            <version>2.2</version>
+            <version>${jedis.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
-            <version>${spring.redis.version}</version>
-        </dependency>-->
+            <version>${spring.data.redis.version}</version>
+        </dependency>
 
         <!--log4j日志包-->
         <dependency>
@@ -231,12 +228,12 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
